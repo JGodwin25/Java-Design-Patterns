@@ -1,0 +1,50 @@
+<!DOCTYPE>
+<html>
+<head>
+<script src="angular.min.js"></script>
+</head>
+<body ng-app="" ng-controller="nameController">
+<input type="text" ng-model="student.firstName">//ng-model
+<input type="text" ng-model="student.lastName">//ng-model
+<hr />
+<p ng-bind="student.firstName"></p> {{student.lastName}}//ng-bind
+<hr />
+Or Using Expression
+{{student.firstName+" "+student.lastName | uppercase}}
+<hr />
+Binding Function
+<p ng-bind="student.fullName() | lowercase"></p>//fn
+<hr />
+Expression Function
+<p>{{student.fullName()}}</p>//fn
+<hr />
+<ul>
+<li ng-repeat="sub in student.subjects">
+<p ng-bind="sub"></p>
+</li>
+</ul>
+
+<hr />
+Apply filter to Above
+<input type="text" ng-model="filter_sub">
+<ul>
+<li ng-repeat="sub in student.subjects | filter : filter_sub | orderBy:subject">?marks from?
+<p ng-bind="sub"></p>
+</li>
+</ul>
+</body>
+<script>
+function nameController($scope){
+	$scope.student = {
+	         firstName:"",
+	         lastName: "",
+	         subjects:["Math","Phy","Comp","Chem"],
+	         fullName: function() {
+	            var studentObject;
+	            studentObject = $scope.student;
+	            return studentObject.firstName + " " + studentObject.lastName;
+	         }
+	      };
+}
+</script>
+</html>

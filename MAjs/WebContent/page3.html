@@ -1,0 +1,20 @@
+<!DOCTYPE>
+<html>
+<head>
+<script src="angular.min.js"></script>
+</head>
+<body ng-app="" ng-init = "countries = [{locale:'en-US',name:'United States'},{locale:'en-GB',name:'United Kingdom'}, {locale:'en-FR',name:'France'}]">
+<input type="text" ng-model="text">
+<hr />
+<p ng-bind="text"></p>//ng-bind
+<hr />
+{{text}}//Exp
+<ul>
+<li ng-repeat="country in countries">
+{{country.name}}, locale= {{country.locale}}
+</li>
+</ul>
+</body>
+<script>
+</script>
+</html>

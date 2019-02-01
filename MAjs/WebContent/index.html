@@ -1,0 +1,17 @@
+<!DOCTYPE>
+<html>
+<head>
+<script src="angular.min.js"></script>
+</head>
+<body ng-app="JesusChrist">
+<div ng-controller="first">
+{{var1}}
+</div>
+</body>
+<script>
+angular.module("JesusChrist",[])
+.controller("first",function($scope){
+$scope.var1="Jesus Christ is my Saviour";
+});
+</script>
+</html>

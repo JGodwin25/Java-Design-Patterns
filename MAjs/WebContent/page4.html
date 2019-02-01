@@ -1,0 +1,42 @@
+<!DOCTYPE>
+<html>
+<head>
+<script src="angular.min.js"></script>
+</head>
+<body ng-app="" ng-controller="nameController">
+<input type="text" ng-model="student.firstName">//ng-model
+<input type="text" ng-model="student.lastName">//ng-model
+<hr />
+<button ng-click="student.aler()"></button>
+<p ng-bind="student.firstName"></p> {{student.lastName}}//ng-bind
+<hr />
+Or Using Expression
+{{student.firstName+" "+student.lastName}}
+<hr />
+Binding Function
+<p ng-bind="student.fullName()"></p>//fn
+<hr />
+Expression Function
+<p>{{student.fullName()}}</p>//fn
+</body>
+<script>
+function foo(){
+	$scope.student.firstName="Halleluiya";
+}
+function nameController($scope){
+	$scope.student = {
+	         firstName:"",
+	         lastName: "",
+	         
+	         fullName: function() {
+	            var studentObject;
+	            studentObject = $scope.student;
+	            return studentObject.firstName + " " + studentObject.lastName;
+	         },
+	         aler:function(){
+	        	 $scope.student.firstName="Messiah Jesus";
+	         }
+	      };
+}
+</script>
+</html>
